@@ -44,23 +44,50 @@
     ========================= */
 
     .faq-button {
-      border: none;
-      background: white;
-      color: #1428a0;
-      width: 280px;
-      padding: 20px 30px;
-      border-radius: 35px;
-      font-size: 20px;
-      font-weight: bold;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: 0.2s;
-    }
+  border: none;
+  background: white;
+  color: #1428a0;
 
-    .faq-button:hover {
-      background: #eaf0ff;
-      transform: scale(1.03);
-    }
+  width: 360px;
+  padding: 22px 25px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.faq-button:hover {
+  background: #f5f8ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.faq-title {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.faq-subtitle {
+  font-size: 14px;
+  color: #555;
+  font-weight: normal;
+}
+
+.faq-action {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #006bea;
+}
+
 
     /* =========================
        FAQ
@@ -217,9 +244,9 @@
       }
 
       .faq-button {
-        width: 280px;
-        font-size: 19px;
-      }
+  width: 100%;
+  max-width: 360px;
+}
     }
   </style>
 </head>
@@ -234,13 +261,21 @@
   <header>
 
     <button
-      type="button"
-      class="faq-button"
-      onclick="toggleFAQ()">
+  type="button"
+  class="faq-button"
+  onclick="toggleFAQ()">
 
-      자주 묻는 질문
+  <span class="faq-title">❓ 자주 묻는 질문</span>
 
-    </button>
+  <span class="faq-subtitle">
+    로그인 · 비밀번호 · OTP · 결제 · 환급 등
+  </span>
+
+  <span class="faq-action">
+    궁금한 내용을 확인해보세요 →
+  </span>
+
+</button>
 
 
     <!-- =========================
