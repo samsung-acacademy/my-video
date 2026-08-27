@@ -43,35 +43,23 @@
        FAQ 버튼
     ========================= */
 
-   .faq-button {
-  border: none;
-  background: white;
-  color: #1428a0;
-
-  /* 버튼 크기 */
-  width: 280px;
-  padding: 20px 30px;
-
-  border-radius: 35px;
-
-  /* 글자 */
-  font-size: 20px;
-  font-weight: bold;
-
-  /* 그림자 */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.faq-button:hover {
-  background: #eaf0ff;
-  transform: scale(1.03);
-}
+    .faq-button {
+      border: none;
+      background: white;
+      color: #1428a0;
+      width: 280px;
+      padding: 20px 30px;
+      border-radius: 35px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
     .faq-button:hover {
       background: #eaf0ff;
+      transform: scale(1.03);
     }
 
     /* =========================
@@ -179,6 +167,7 @@
     video {
       width: 100%;
       max-width: 500px;
+      height: auto;
       display: block;
       margin: 0 auto;
       border-radius: 10px;
@@ -226,6 +215,11 @@
       .faq-question {
         font-size: 14px;
       }
+
+      .faq-button {
+        width: 280px;
+        font-size: 19px;
+      }
     }
   </style>
 </head>
@@ -238,10 +232,6 @@
   ========================= -->
 
   <header>
-
-    
-
-    
 
     <button
       type="button"
@@ -259,17 +249,12 @@
 
     <div id="faq-area">
 
-    
-
-
       <div class="contact">
-
 
         <strong>이메일로 문의 부탁드립니다.</strong>
 
         <br><br>
 
-        
         <span class="email">
           aircon.sec@samsung.com
         </span>
@@ -293,8 +278,6 @@
         <div class="faq-answer">
 
           관리자 승인 후 로그인 가능합니다. (영업일 1~2일 소요)
-      
-          
 
         </div>
 
@@ -317,7 +300,8 @@
         <div class="faq-answer">
 
           회원가입 승인 후 3시간이 경과해야 사이트 이용이 정상적으로 가능합니다.
-          <br> 잠시 후 다시 로그인 부탁드립니다.
+          <br>
+          잠시 후 다시 로그인 부탁드립니다.
 
         </div>
 
@@ -341,10 +325,8 @@
 
           이메일 주소가 확실하다면, 장기 미접속으로 계정이 비활성화되었습니다.
           <br>
-
           활성화 후 비밀번호 초기화 가능합니다.
           <br>
-
           aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
 
         </div>
@@ -368,11 +350,11 @@
         <div class="faq-answer">
 
           현재 Authenticator 앱에 이미 6자리 숫자가 떠있다면
-          클릭 후 옆으로 밀어서 삭제 처리한 후에 
-          <br> 다시 로그인하시면 QR코드가 보입니다.
-         
-
+          클릭 후 옆으로 밀어서 삭제 처리한 후에
           <br>
+          다시 로그인하시면 QR코드가 보입니다.
+
+          <br><br>
 
           핸드폰 등록부터 다시 진행 부탁드립니다.
 
@@ -398,10 +380,8 @@
 
           1개의 기기로만 로그인 가능합니다.
           <br>
-
           aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
           <br>
-
           초기화해드리겠습니다.
 
         </div>
@@ -426,7 +406,6 @@
 
           초기화해드리겠습니다.
           <br>
-
           aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
 
         </div>
@@ -450,7 +429,8 @@
         <div class="faq-answer">
 
           교육일로부터 3주 전에 결제 문자를 보내드립니다.
-          <br> 문자 내 URL 결제 링크를 클릭해서 카드 결제 진행하시면 됩니다.
+          <br>
+          문자 내 URL 결제 링크를 클릭해서 카드 결제 진행하시면 됩니다.
 
         </div>
 
@@ -473,8 +453,7 @@
         <div class="faq-answer">
 
           죄송하지만 신용카드 결제만 가능합니다.
-          
-
+          <br>
           본인 명의의 신용카드가 없다면, 타인 명의도 가능합니다.
 
         </div>
@@ -499,12 +478,12 @@
 
           반드시 대표자/법인 카드로 결제해야 합니다.
 
-          <br>
+          <br><br>
 
           결제 시 '교육생'과 '구매자/결제자'가 달라도
           '결제자' 정보는 반드시 '교육생' 본인 이름을 작성하셔야 합니다.
 
-          <br>
+          <br><br>
 
           회사명 작성 시 환급 진행이 불가합니다.
 
@@ -531,7 +510,7 @@
           짧은 시간 안에 비밀번호를 여러 번 틀릴 경우,
           개인정보보호를 위해 계정이 비활성화됩니다.
 
-          <br>
+          <br><br>
 
           30분 후에 로그인 부탁드립니다.
 
@@ -557,7 +536,6 @@
 
           직접 변경이 불가합니다.
           <br>
-
           aircon.sec@samsung.com으로 요청 사항을 보내주세요.
 
         </div>
@@ -582,7 +560,7 @@
 
           aircon.sec@samsung.com으로 보내주세요.
 
-          <br>
+          <br><br>
 
           ① 성함, 전화번호
           <br>
@@ -614,7 +592,7 @@
       <video controls playsinline preload="metadata">
 
         <source
-          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787809540/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85_%EB%B0%A9%EB%B2%95.mp4"
           type="video/mp4">
 
         브라우저에서 영상을 재생할 수 없습니다.
@@ -635,7 +613,7 @@
       <video controls playsinline preload="metadata">
 
         <source
-          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787809615/%EB%A1%9C%EA%B7%B8%EC%9D%B8_%EB%B0%A9%EB%B2%95.mp4"
           type="video/mp4">
 
         브라우저에서 영상을 재생할 수 없습니다.
@@ -656,7 +634,7 @@
       <video controls playsinline preload="metadata">
 
         <source
-          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787809652/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8_%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B0%A9%EB%B2%95.mp4"
           type="video/mp4">
 
         브라우저에서 영상을 재생할 수 없습니다.
