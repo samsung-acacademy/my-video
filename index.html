@@ -22,19 +22,93 @@
       background: linear-gradient(135deg, #1428a0, #006bea);
       color: white;
       text-align: center;
-      padding: 45px 20px;
+      padding: 35px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 700;
     }
 
     header p {
-      margin: 12px 0 0;
+      margin: 10px 0 20px;
       font-size: 16px;
       opacity: 0.9;
+    }
+
+    /* FAQ 버튼 */
+    .faq-button {
+      border: none;
+      background: white;
+      color: #1428a0;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .faq-button:hover {
+      background: #eaf0ff;
+      transform: translateY(-1px);
+    }
+
+    /* FAQ 영역 */
+    .faq {
+      display: none;
+      background: white;
+      width: 92%;
+      max-width: 900px;
+      margin: 25px auto 0;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      color: #222;
+      text-align: left;
+    }
+
+    .faq h2 {
+      margin-top: 0;
+      color: #1428a0;
+      text-align: center;
+      font-size: 23px;
+    }
+
+    .contact {
+      background: #eef4ff;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .contact strong {
+      color: #1428a0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 18px 5px;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .question {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .answer {
+      color: #666;
+      line-height: 1.7;
+      font-size: 14px;
     }
 
     .container {
@@ -59,7 +133,9 @@
 
     video {
       width: 100%;
+      max-width: 650px;
       display: block;
+      margin: 0 auto;
       border-radius: 10px;
       background: #000;
     }
@@ -70,15 +146,200 @@
       color: #888;
       font-size: 13px;
     }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 25px;
+      }
+
+      .container {
+        width: 94%;
+      }
+
+      .video-box {
+        padding: 12px;
+      }
+
+      .video-box h2 {
+        font-size: 18px;
+      }
+
+      .faq {
+        width: 94%;
+        padding: 18px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <header>
+
     <h1>Samsung AC Academy</h1>
     <p>교육 동영상</p>
+
+    <button class="faq-button" onclick="toggleFAQ()">
+      자주 묻는 질문
+    </button>
+
+    <section class="faq" id="faq">
+
+      <h2>자주 묻는 질문</h2>
+
+      <div class="contact">
+        <strong>이메일로 문의 부탁드립니다.</strong><br>
+        전화 문의는 불가합니다.<br><br>
+        문의 : <strong>aircon.sec@samsung.com</strong>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          회원가입 했으나, 로그인이 안 됩니다.
+        </div>
+        <div class="answer">
+          관리자 승인 후 로그인 가능합니다.<br>
+          (영업일 1~2일 소요)
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          회원가입 승인 메일을 받고 로그인했으나 교육이 하나도 안 보입니다.
+        </div>
+        <div class="answer">
+          회원가입 승인 후 3시간이 경과해야 사이트 이용이 정상적으로 가능합니다.
+          잠시 후 다시 로그인 부탁드립니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          비밀번호 초기화 메일이 안 옵니다.
+        </div>
+        <div class="answer">
+          이메일 주소가 확실하다면, 장기 미접속으로 계정이 비활성화되었습니다.<br><br>
+          활성화 후 비밀번호 초기화 가능합니다.<br>
+          aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          Google OTP 앱에 뜬 숫자를 넣어도 로그인이 안 됩니다.
+        </div>
+        <div class="answer">
+          현재 Authenticator 앱에 이미 6자리 숫자가 떠있다면
+          클릭 후 옆으로 밀어서 삭제 처리한 후에 다시 로그인하시면
+          QR코드가 보일겁니다.<br><br>
+          핸드폰 등록부터 다시 진행 부탁드립니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          핸드폰을 바꿨습니다.
+        </div>
+        <div class="answer">
+          1개의 기기로만 로그인 가능합니다.<br>
+          aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.<br>
+          초기화해드리겠습니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          QR코드가 안 보입니다. 인증번호를 넣으라고 합니다.
+        </div>
+        <div class="answer">
+          초기화해드리겠습니다.<br>
+          aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          결제 문자가 안 옵니다.
+        </div>
+        <div class="answer">
+          교육일로부터 3주 전에 결제 문자를 보내드립니다.
+          문자 내 URL 결제 링크를 클릭해서 카드 결제 진행하시면 됩니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          계좌이체도 가능한가요?
+        </div>
+        <div class="answer">
+          죄송하지만 신용카드 결제만 가능합니다.<br>
+          본인 명의의 신용카드가 없다면, 타인 명의도 가능합니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          환급대상자(고용보험 납부) 결제 방법
+        </div>
+        <div class="answer">
+          반드시 대표자/법인 카드로 결제해야 합니다.<br><br>
+          결제 시 '교육생'과 '구매자/결제자'가 달라도
+          '결제자' 정보는 반드시 '교육생' 본인 이름을 작성하셔야 합니다.<br><br>
+          회사명 작성 시 환급 진행이 불가합니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          비밀번호를 많이 틀려서 계정이 잠겼습니다.
+        </div>
+        <div class="answer">
+          짧은 시간 안에 비밀번호를 여러 번 틀릴 경우,
+          개인정보보호를 위해 계정이 비활성화됩니다.<br><br>
+          30분 후에 로그인 부탁드립니다.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          전화번호/소속 회사가 변경되었습니다. 어디서 변경하나요?
+        </div>
+        <div class="answer">
+          직접 변경이 불가합니다.<br>
+          aircon.sec@samsung.com으로 요청 사항을 보내주세요.
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <div class="question">
+          경력자 교육 신청했습니다. 어떤 서류를 보내야하나요?
+        </div>
+        <div class="answer">
+          aircon.sec@samsung.com으로 보내주세요.<br><br>
+
+          ① 성함, 전화번호<br>
+          ② 타사 자격증 복사본<br>
+          ③ 증명사진 파일<br>
+          ④ 택배 받으실 주소
+        </div>
+      </div>
+
+    </section>
+
   </header>
+
 
   <main class="container">
 
@@ -105,20 +366,4 @@
 
 
     <div class="video-box">
-      <h2>교육 영상 3</h2>
-
-      <video controls playsinline>
-        <source
-          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
-          type="video/mp4">
-      </video>
-    </div>
-
-  </main>
-
-  <footer>
-    © Samsung AC Academy
-  </footer>
-
-</body>
-</html>
+      <h2>
