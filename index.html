@@ -3,55 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>동영상</title>
+
+  <title>Samsung AC Academy</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 20px;
-      background: #f5f5f5;
-      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1428a0, #006bea);
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      opacity: 0.9;
     }
 
     .container {
+      width: 92%;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 35px auto 60px;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
+    .video-box {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 28px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .video-box h2 {
+      margin: 5px 5px 15px;
+      font-size: 20px;
+      color: #1428a0;
     }
 
     video {
       width: 100%;
       display: block;
-      margin-bottom: 25px;
       border-radius: 10px;
       background: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <header>
+    <h1>Samsung AC Academy</h1>
+    <p>교육 동영상</p>
+  </header>
 
-    <h1>동영상</h1>
+  <main class="container">
 
-    <video controls playsinline>
-      <source src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4" type="video/mp4">
-    </video>
+    <div class="video-box">
+      <h2>교육 영상 1</h2>
 
-    <video controls playsinline>
-      <source src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4" type="video/mp4">
-    </video>
+      <video controls playsinline>
+        <source
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
+          type="video/mp4">
+      </video>
+    </div>
 
-    <video controls playsinline>
-      <source src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4" type="video/mp4">
-    </video>
 
-  </div>
+    <div class="video-box">
+      <h2>교육 영상 2</h2>
+
+      <video controls playsinline>
+        <source
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
+          type="video/mp4">
+      </video>
+    </div>
+
+
+    <div class="video-box">
+      <h2>교육 영상 3</h2>
+
+      <video controls playsinline>
+        <source
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787805698/KakaoTalk_20260630_100917206.mp4"
+          type="video/mp4">
+      </video>
+    </div>
+
+  </main>
+
+  <footer>
+    © Samsung AC Academy
+  </footer>
 
 </body>
 </html>
