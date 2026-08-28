@@ -603,34 +603,50 @@
       }
 
 
+/* =====================================================
+   질문 접기 버튼
+   모바일에서만 화면 아래에 고정
+   눈에 잘 띄도록 강조
+   ===================================================== */
 
-      /* =====================================================
-         질문 접기 버튼
-         모바일에서만 화면 아래에 고정
-         ===================================================== */
+.faq-more-button.sticky-close {
 
-      .faq-more-button.sticky-close {
+  position: fixed;
 
-        position: fixed;
+  left: 50%;
 
-        left: 50%;
+  bottom: 15px;
 
-        bottom: 15px;
+  transform: translateX(-50%);
 
-        transform: translateX(-50%);
+  width: calc(100% - 28px);
 
-        width: calc(100% - 28px);
+  max-width: 500px;
 
-        max-width: 500px;
+  z-index: 9999;
 
-        z-index: 9999;
+  background: #1428a0;
 
-        box-shadow:
-          0 4px 15px rgba(0, 0, 0, 0.18);
-      }
+  color: white;
 
-    }
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.30);
 
+  font-size: 15px;
+
+  padding: 14px 10px;
+
+  border-radius: 12px;
+}
+
+
+/* 마우스를 올렸을 때 */
+
+.faq-more-button.sticky-close:hover {
+
+  background: #0d1d7a;
+
+}
 
 
     /* =========================================================
