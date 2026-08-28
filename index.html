@@ -859,40 +859,48 @@
     });
 
 
-    function toggleMoreFAQ() {
+   function toggleMoreFAQ() {
 
-      const faqItems = document.querySelectorAll(".faq-item");
-      const moreButton = document.getElementById("faq-more-button");
+  const faqItems = document.querySelectorAll(".faq-item");
+  const moreButton = document.getElementById("faq-more-button");
+  const contactArea = document.getElementById("contact-area");
 
-      const isHidden = faqItems[3].classList.contains("hidden-faq");
+  const isHidden = faqItems[3].classList.contains("hidden-faq");
 
-      faqItems.forEach(function(item, index) {
+  faqItems.forEach(function(item, index) {
 
-        if (index >= 3) {
+    if (index >= 3) {
 
-          if (isHidden) {
-            item.classList.remove("hidden-faq");
-          } else {
-            item.classList.add("hidden-faq");
-          }
-
-        }
-
-      });
-
-     if (isHidden) {
-
-  moreButton.innerHTML = '<span class="faq-more-line1">질문 접기 ↑</span>';
-
-} else {
-
-  moreButton.innerHTML =
-    '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
-    '<span class="faq-more-line2">(휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
-
-}
+      if (isHidden) {
+        item.classList.remove("hidden-faq");
+      } else {
+        item.classList.add("hidden-faq");
+      }
 
     }
+
+  });
+
+  if (isHidden) {
+
+    // 질문 펼치기 + 문의 표시
+    contactArea.classList.remove("hidden-contact");
+
+    moreButton.innerHTML =
+      '<span class="faq-more-line1">질문 접기 ↑</span>';
+
+  } else {
+
+    // 질문 접기 + 문의 숨기기
+    contactArea.classList.add("hidden-contact");
+
+    moreButton.innerHTML =
+      '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
+      '<span class="faq-more-line2">(휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
+
+  }
+
+}
 
     
   </script>
