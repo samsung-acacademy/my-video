@@ -1464,52 +1464,53 @@
        FAQ 질문 열기 / 닫기
        ========================================================= */
 
-    function toggleAnswer(button) {
+   /* =========================
+   FAQ 질문 열기 / 닫기
+   - 한 번에 하나의 답변만 열림
+   - 다른 질문을 누르면
+     기존에 열려 있던 답변은 자동으로 닫힘
+========================= */
 
-      /*
-        button
-        → 지금 클릭한 질문 버튼
+function toggleAnswer(button) {
 
-        nextElementSibling
-        → 버튼 바로 다음에 있는 HTML 요소
+  const answer = button.nextElementSibling;
 
-        여기서는 .faq-answer가 됨
-      */
+  // 현재 열려 있는 모든 FAQ 답변 찾기
+  const allAnswers = document.querySelectorAll(".faq-answer");
+  const allQuestions = document.querySelectorAll(".faq-question");
 
-      const answer = button.nextElementSibling;
+  // 다른 질문들의 답변은 모두 닫기
+  allAnswers.forEach(function(item) {
 
-
-      /*
-        현재 답변이 열려 있는지 확인
-      */
-
-      if (answer.style.display === "block") {
-
-
-        /* 답변 닫기 */
-        answer.style.display = "none";
-
-
-        /* active class 제거
-           → + 표시로 돌아감 */
-        button.classList.remove("active");
-
-
-      } else {
-
-
-        /* 답변 열기 */
-        answer.style.display = "block";
-
-
-        /* active class 추가
-           → +가 −로 변경됨 */
-        button.classList.add("active");
-
-      }
-
+    if (item !== answer) {
+      item.style.display = "none";
     }
 
+  });
+
+  // 다른 질문의 + / − 표시도 원래대로
+  allQuestions.forEach(function(item) {
+
+    if (item !== button) {
+      item.classList.remove("active");
+    }
+
+  });
+
+  // 현재 질문 열기 / 닫기
+  if (answer.style.display === "block") {
+
+    answer.style.display = "none";
+    button.classList.remove("active");
+
+  } else {
+
+    answer.style.display = "block";
+    button.classList.add("active");
+
+  }
+
+}
 
 
     /* =========================================================
