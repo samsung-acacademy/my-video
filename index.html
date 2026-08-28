@@ -1,368 +1,802 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
   <meta charset="UTF-8">
+
+  <!-- 모바일 화면에서도 화면 크기에 맞게 표시 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- 브라우저 탭에 표시되는 제목 -->
   <title>Samsung AC Academy</title>
 
+
   <style>
+
+    /* =========================================================
+       전체 기본 설정
+       ========================================================= */
+
     * {
       box-sizing: border-box;
+      /* width, padding 등을 계산하기 쉽게 설정 */
     }
+
 
     body {
       margin: 0;
+      /* 기본 여백 제거 */
+
       background: #f4f7fb;
+      /* 전체 페이지 배경색 */
+
       color: #222;
+      /* 기본 글자색 */
+
       font-family: Arial, "Malgun Gothic", sans-serif;
+      /* 기본 글씨체 */
     }
 
-    /* =========================
-       상단
-    ========================= */
+
+
+    /* =========================================================
+       상단 영역
+       ========================================================= */
 
     header {
       background: linear-gradient(135deg, #1428a0, #006bea);
+      /* 파란색 그라데이션 배경 */
+
       color: white;
+      /* 상단 글자는 흰색 */
+
       text-align: center;
+      /* 글자 가운데 정렬 */
+
       padding: 35px 20px;
+      /* 위아래 35px / 좌우 20px 여백 */
     }
+
 
     header h1 {
       margin: 0;
+      /* 제목 기본 여백 제거 */
+
       font-size: 30px;
+      /* 제목 크기 */
     }
+
 
     header p {
       margin: 10px 0 20px;
+      /* 위 10px / 아래 20px */
+
       font-size: 16px;
+      /* 글자 크기 */
     }
 
-    /* =========================
-       FAQ 버튼
-    ========================= */
-
- .faq-button {
-  border: none;
-  background: white;
-  color: #1428a0;
-
-  width: 360px;
-  padding: 22px 25px;
-
-  border-radius: 16px;
-
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-
-  cursor: pointer;
-  transition: 0.2s;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  gap: 8px;
-
-  margin: 0 auto;
-}
 
 
-.faq-button:hover {
-  background: #f5f8ff;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
-}
+    /* =========================================================
+       FAQ 관련 버튼
+       ========================================================= */
 
-.faq-title {
-  font-size: 21px;
-  font-weight: bold;
-}
+    .faq-button {
+      /*
+        .faq-button
+        → class 이름이 "faq-button"인 요소를 꾸미는 CSS
 
-.faq-subtitle {
-  font-size: 14px;
-  color: #555;
-  font-weight: normal;
-}
+        현재 HTML에서는 사용하지 않고 있지만,
+        나중에 FAQ 전체를 여는 버튼 등을 만들 때 사용할 수 있음.
+      */
 
-.faq-action {
-  margin-top: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #006bea;
-}
+      border: none;
+      /* 버튼 테두리 제거 */
+
+      background: white;
+      /* 버튼 배경 흰색 */
+
+      color: #1428a0;
+      /* 글자 파란색 */
+
+      width: 360px;
+      /* 버튼 최대 기본 너비 */
+
+      padding: 22px 25px;
+      /* 버튼 안쪽 여백 */
+
+      border-radius: 16px;
+      /* 모서리를 둥글게 */
+
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      /* 그림자 */
+
+      cursor: pointer;
+      /* 마우스를 올리면 손가락 모양 */
+
+      transition: 0.2s;
+      /* hover 효과가 부드럽게 움직임 */
+
+      display: flex;
+      /* 내부 요소를 flex로 배치 */
+
+      flex-direction: column;
+      /* 위에서 아래 방향으로 배치 */
+
+      align-items: center;
+      /* 가로 가운데 정렬 */
+
+      justify-content: center;
+      /* 세로 가운데 정렬 */
+
+      text-align: center;
+      /* 글자 가운데 정렬 */
+
+      gap: 8px;
+      /* 내부 요소 사이 간격 */
+
+      margin: 0 auto;
+      /* 가운데 배치 */
+    }
 
 
-    /* =========================
-       FAQ
-    ========================= */
+    /* .faq-button에 마우스를 올렸을 때 */
+    .faq-button:hover {
+
+      background: #f5f8ff;
+
+      transform: translateY(-3px);
+      /* 살짝 위로 올라감 */
+
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    }
+
+
+    /* FAQ 버튼의 큰 제목 */
+    .faq-title {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    /* FAQ 버튼의 작은 설명 */
+    .faq-subtitle {
+      font-size: 14px;
+      color: #555;
+      font-weight: normal;
+    }
+
+
+    /* FAQ 버튼의 동작 안내 문구 */
+    .faq-action {
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #006bea;
+    }
+
+
+
+    /* =========================================================
+       FAQ 전체 박스
+       ========================================================= */
 
     #faq-area {
+      /*
+        #faq-area
+        → id가 "faq-area"인 HTML 요소를 꾸미는 부분
+
+        # = id
+        . = class
+
+        즉,
+
+        #faq-area → id="faq-area"
+        .faq-item → class="faq-item"
+      */
+
       width: 92%;
+      /* 화면 너비의 92% */
+
       max-width: 900px;
+      /* 아무리 커져도 최대 900px */
+
       margin: 25px auto 0;
+      /* 위쪽 25px / 좌우 자동 → 가운데 정렬 */
+
       padding: 25px;
+      /* 박스 안쪽 여백 */
+
       background: white;
+      /* FAQ 박스 배경 흰색 */
+
       color: #222;
+      /* FAQ 글자색 */
+
       border-radius: 16px;
+      /* 모서리 둥글게 */
+
       text-align: left;
+      /* 질문은 왼쪽 정렬 */
+
       box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+      /* 박스 그림자 */
     }
 
+
+    /* FAQ 제목 */
     #faq-area h2 {
+
       margin: 0 0 12px;
+
       text-align: center;
+      /* 가운데 정렬 */
+
       color: #1428a0;
+      /* 삼성 파란색 */
+
       font-size: 20px;
     }
 
-   .contact {
-  background: #eef4ff;
-  border-radius: 12px;
-  padding: 12px;
-  margin-top: 16px;
-  margin-bottom: 0;
-  text-align: center;
-  line-height: 1.7;
-  font-size: 15px;
-}
+
+
+    /* =========================================================
+       FAQ 안의 문의 박스
+       ========================================================= */
+
+    .contact {
+      /*
+        class="contact"
+        → FAQ 펼쳤을 때 나오는 문의 이메일 박스
+      */
+
+      background: #eef4ff;
+      /* 연한 파란색 배경 */
+
+      border-radius: 12px;
+      /* 모서리 둥글게 */
+
+      padding: 12px;
+      /* 안쪽 여백 */
+
+      margin-top: 16px;
+      /* 위쪽 간격 */
+
+      margin-bottom: 0;
+
+      text-align: center;
+      /* 가운데 정렬 */
+
+      line-height: 1.7;
+      /* 줄 간격 */
+
+      font-size: 15px;
+      /* 글자 크기 */
+    }
+
+
+    /* =========================================================
+       숨겨진 문의 박스
+       ========================================================= */
 
     .hidden-contact {
-  display: none;
-}
+      /*
+        class="hidden-contact"가 붙으면
+        문의 박스를 화면에서 숨김
 
-    
- .contact strong,
-.email {
-  color: #1428a0;
-  font-weight: bold;
-}
+        display: none;
+        → 아예 보이지 않게 함
+      */
 
-.footer-contact {
-  max-width: 500px;
-  margin: 0 auto 20px;
-  padding: 18px 20px;
-
-  background: #eef4ff;
-  border-radius: 14px;
-
-  text-align: center;
-  line-height: 1.7;
-}
-    
-.footer-message {
-  color: #1428a0;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.footer-email {
-  color: #1428a0;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-    
-    .faq-item {
-      border-bottom: 1px solid #e5e5e5;
+      display: none;
     }
+
+
+    /* 문의 문구와 이메일을 파란색으로 */
+    .contact strong,
+    .email {
+
+      color: #1428a0;
+
+      font-weight: bold;
+    }
+
+
+
+    /* =========================================================
+       페이지 맨 아래 문의 박스
+       ========================================================= */
+
+    .footer-contact {
+      /*
+        footer 안에 있는
+        "문의는 이메일로 부탁드립니다" 박스
+      */
+
+      max-width: 500px;
+      /* 박스 최대 너비 */
+
+      margin: 0 auto 20px;
+      /* 가운데 정렬 / 아래 20px */
+
+      padding: 18px 20px;
+      /* 박스 안쪽 여백 */
+
+      background: #eef4ff;
+      /* 연한 파란색 박스 */
+
+      border-radius: 14px;
+      /* 모서리 둥글게 */
+
+      text-align: center;
+      /* 가운데 정렬 */
+
+      line-height: 1.7;
+      /* 줄 간격 */
+    }
+
+
+    /* footer 문의 문구 */
+    .footer-message {
+
+      color: #1428a0;
+      /* 파란색 */
+
+      font-size: 15px;
+      /* 글자 크기 */
+
+      font-weight: bold;
+      /* 굵게 */
+    }
+
+
+    /* footer 이메일 */
+    .footer-email {
+
+      color: #1428a0;
+      /* 파란색 */
+
+      font-size: 15px;
+      /* 글자 크기 */
+
+      font-weight: bold;
+      /* 굵게 */
+    }
+
+
+
+    /* =========================================================
+       FAQ 질문 하나하나의 영역
+       ========================================================= */
+
+    .faq-item {
+      /*
+        class="faq-item"
+        → 질문 1개 + 답변 1개를 하나의 묶음으로 만드는 영역
+      */
+
+      border-bottom: 1px solid #e5e5e5;
+      /* 질문 사이에 얇은 선 */
+    }
+
+
+    /* =========================================================
+       FAQ 질문 버튼
+       ========================================================= */
 
     .faq-question {
+      /*
+        ★ 중요 ★
+
+        .faq-question
+        → "질문 버튼"의 디자인을 정하는 CSS
+
+        HTML에서 이렇게 사용됨:
+
+        <button class="faq-question">
+          ID를 모르겠습니다.
+        </button>
+
+        즉,
+        질문 부분의 글자 크기 / 여백 / 색상 / + 표시 등을 담당
+      */
+
       width: 100%;
+      /* FAQ 박스 전체 너비 사용 */
+
       border: none;
+      /* 버튼 테두리 제거 */
+
       background: white;
+      /* 버튼 배경 흰색 */
+
       padding: 14px 35px 14px 5px;
+      /* 위 / 오른쪽 / 아래 / 왼쪽 여백 */
+
       text-align: left;
+      /* 질문 글자를 왼쪽 정렬 */
+
       font-size: 15px;
+      /* 질문 글자 크기 */
+
       font-weight: bold;
+      /* 질문 글자를 굵게 */
+
       color: #333;
+      /* 질문 글자색 */
+
       cursor: pointer;
+      /* 마우스를 올리면 손가락 */
+
       position: relative;
+      /*
+        오른쪽 + / − 표시 위치를 잡기 위해 필요
+      */
     }
+
+
+    /* =========================================================
+       FAQ 질문 오른쪽의 + 표시
+       ========================================================= */
 
     .faq-question::after {
+      /*
+        ::after
+        → HTML에 실제로 없는 내용을 CSS로 추가
+
+        여기서는 질문 오른쪽에 "+" 표시를 추가
+      */
+
       content: "+";
+      /* 처음에는 + 표시 */
+
       position: absolute;
+      /* 원하는 위치에 배치 */
+
       right: 8px;
+      /* 오른쪽에서 8px */
+
       top: 14px;
+      /* 위에서 14px */
+
       font-size: 22px;
+      /* + 크기 */
+
       color: #1428a0;
+      /* 파란색 */
     }
 
+
+    /* 질문이 열렸을 때 +를 −로 변경 */
     .faq-question.active::after {
+
       content: "−";
+      /* - 모양으로 변경 */
     }
+
+
+
+    /* =========================================================
+       FAQ 답변
+       ========================================================= */
 
     .faq-answer {
+      /*
+        질문을 클릭하면 나타나는 답변 부분
+
+        기본값은 display: none;
+        → 처음에는 숨겨져 있음
+      */
+
       display: none;
+
       padding: 0 10px 12px 5px;
+      /* 답변 안쪽 여백 */
+
       color: #666;
+      /* 답변 글자색 */
+
       font-size: 14px;
+      /* 답변 글자 크기 */
+
       line-height: 1.8;
+      /* 줄 간격 */
     }
 
-    /* =========================
-       영상
-    ========================= */
+
+
+    /* =========================================================
+       영상 영역
+       ========================================================= */
 
     .container {
+
       width: 92%;
+      /* 화면의 92% */
+
       max-width: 900px;
+      /* 최대 900px */
+
       margin: 25px auto 60px;
+      /* 가운데 정렬 */
     }
 
+
+    /* 영상 하나를 감싸는 흰색 박스 */
     .video-box {
+
       background: white;
+
       border-radius: 16px;
+
       padding: 18px;
+
       margin-bottom: 28px;
+      /* 영상 박스 사이 간격 */
+
       box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
+
+    /* 영상 제목 */
     .video-box h2 {
+
       margin: 5px 5px 15px;
+
       font-size: 20px;
+
       color: #1428a0;
+
       text-align: center;
     }
 
+
+    /* 실제 영상 */
     video {
+
       width: 100%;
+      /* 영상 박스 너비에 맞춤 */
+
       max-width: 600px;
+      /* 영상 최대 너비 */
+
       height: auto;
+      /* 비율 자동 유지 */
+
       display: block;
+
       margin: 0 auto;
+      /* 가운데 정렬 */
+
       border-radius: 10px;
+      /* 영상 모서리 둥글게 */
+
       background: #000;
+      /* 영상 로딩 전 검은색 */
     }
 
-    /* =========================
-       하단
-    ========================= */
+
+
+    /* =========================================================
+       페이지 맨 아래 footer
+       ========================================================= */
 
     footer {
+
       text-align: center;
+      /* 가운데 정렬 */
+
       padding: 25px;
+      /* 안쪽 여백 */
+
       color: #888;
+      /* 기본 footer 글자색 */
+
       font-size: 13px;
+      /* 작은 글자 */
     }
 
-    /* =========================
-       모바일
-    ========================= */
+
+
+    /* =========================================================
+       모바일 화면 설정
+       ========================================================= */
 
     @media (max-width: 600px) {
 
+      /*
+        화면 폭이 600px 이하일 때 적용
+        → 스마트폰 화면용 설정
+      */
+
+
       header h1 {
         font-size: 25px;
+        /* 모바일에서는 제목을 조금 작게 */
       }
+
 
       .container {
         width: 94%;
+        /* 모바일에서는 영상 영역을 조금 넓게 */
       }
+
 
       .video-box {
         padding: 12px;
+        /* 모바일에서는 영상 박스 여백 축소 */
       }
+
 
       .video-box h2 {
         font-size: 18px;
+        /* 모바일 영상 제목 크기 */
       }
+
 
       #faq-area {
         width: 94%;
         padding: 14px;
+        /* 모바일 FAQ 박스 여백 축소 */
       }
+
 
       .faq-question {
         font-size: 14px;
+        /* 모바일 질문 글자 크기 */
       }
 
+
       .faq-button {
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .faq-more-button {
-    font-size: 13px;
-    padding: 12px 8px;
-    white-space: normal;
-    line-height: 1.6;
-  }
-      
-}
+        width: 100%;
+        max-width: 360px;
+        /* 모바일에서 버튼이 화면에 맞게 */
+      }
 
 
-/* =========================
-   FAQ 더보기
-========================= */
+      .faq-more-button {
+        font-size: 13px;
 
-.faq-item.hidden-faq {
-  display: none;
-}
+        padding: 12px 8px;
 
-.faq-more-button {
-  width: 100%;
-  margin-top: 12px;
-  padding: 12px 10px;
-  border: none;
-  border-radius: 10px;
-  background: #eef4ff;
-  color: #1428a0;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 1.5;
-  text-align: center;
-}
+        white-space: normal;
 
-/* PC에서는 한 줄 */
-.faq-more-line1,
-.faq-more-line2 {
-  display: inline;
-}
+        line-height: 1.6;
+      }
 
-/* 모바일에서는 두 줄 */
-@media (max-width: 600px) {
+    }
 
-  .faq-more-button {
-    font-size: 13px;
-    padding: 12px 8px;
-    line-height: 1.6;
-  }
 
-  .faq-more-line1,
-  .faq-more-line2 {
-    display: block;
-  }
 
-}
+    /* =========================================================
+       FAQ 더보기 기능
+       ========================================================= */
 
-.faq-more-button:hover {
-  background: #dfeaff;
-}
+    .faq-item.hidden-faq {
+      /*
+        hidden-faq라는 class가 붙은 FAQ를 숨김
+
+        JavaScript가 질문 4번 이후에
+        이 class를 자동으로 붙임
+      */
+
+      display: none;
+    }
+
+
+    /* =========================================================
+       "더 많은 질문 확인하기" 버튼
+       ========================================================= */
+
+    .faq-more-button {
+
+      width: 100%;
+      /* FAQ 박스 전체 너비 */
+
+      margin-top: 12px;
+      /* 위쪽 간격 */
+
+      padding: 12px 10px;
+      /* 버튼 안쪽 여백 */
+
+      border: none;
+      /* 테두리 없음 */
+
+      border-radius: 10px;
+      /* 모서리 둥글게 */
+
+      background: #eef4ff;
+      /* 연한 파란색 */
+
+      color: #1428a0;
+      /* 글자 파란색 */
+
+      font-size: 15px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+      /* 클릭 가능한 버튼 */
+
+      line-height: 1.5;
+
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       "더 많은 질문" 버튼의 글자
+       ========================================================= */
+
+    .faq-more-line1,
+    .faq-more-line2 {
+
+      display: inline;
+      /* PC에서는 한 줄 */
+    }
+
+
+    /* =========================================================
+       모바일에서 더보기 버튼을 두 줄로 표시
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .faq-more-button {
+
+        font-size: 13px;
+
+        padding: 12px 8px;
+
+        line-height: 1.6;
+      }
+
+
+      .faq-more-line1,
+      .faq-more-line2 {
+
+        display: block;
+        /* 모바일에서는 각각 한 줄 */
+      }
+
+    }
+
+
+    /* 더보기 버튼에 마우스를 올렸을 때 */
+    .faq-more-button:hover {
+
+      background: #dfeaff;
+      /* 조금 진한 파란색 */
+    }
 
   </style>
+
 </head>
+
 
 
 <body>
 
-  <!-- =========================
-       상단
-  ========================= -->
+
+  <!-- =========================================================
+       FAQ 전체 영역
+       ========================================================= -->
 
   <header>
+
 
     <div id="faq-area">
 
 
-<h2>❓ 자주 묻는 질문 ❓</h2>
+      <!-- FAQ 제목 -->
+      <h2>❓ 자주 묻는 질문 ❓</h2>
 
 
-    <!-- 질문 1 -->
+
+      <!-- =====================================================
+           질문 1
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -375,6 +809,7 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
@@ -382,8 +817,12 @@
         </div>
 
       </div>
-      
-      <!-- 질문 2 -->
+
+
+
+      <!-- =====================================================
+           질문 2
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -396,16 +835,21 @@
 
         </button>
 
+
         <div class="faq-answer">
 
-          관리자 승인 후 로그인 가능합니다. (영업일 1~2일 소요)
+          관리자 승인 후 로그인 가능합니다.
+          (영업일 1~2일 소요)
 
         </div>
 
       </div>
 
 
-      <!-- 질문 3 -->
+
+      <!-- =====================================================
+           질문 3
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -418,19 +862,30 @@
 
         </button>
 
+
         <div class="faq-answer">
 
-          이메일 주소가 확실하다면, 장기 미접속으로 계정이 비활성화되었습니다.
+          이메일 주소가 확실하다면,
+          장기 미접속으로 계정이 비활성화되었습니다.
+
           <br>
+
           활성화 후 비밀번호 초기화 가능합니다.
+
           <br>
-          aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
+
+          aircon.sec@samsung.com으로
+          성함, 생년월일을 보내주세요.
 
         </div>
 
       </div>
-      
- <!-- 질문 4 -->
+
+
+
+      <!-- =====================================================
+           질문 4
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -442,6 +897,7 @@
           비밀번호를 많이 틀려서 계정이 잠겼습니다.
 
         </button>
+
 
         <div class="faq-answer">
 
@@ -455,8 +911,12 @@
         </div>
 
       </div>
-      
-        <!-- 질문 5 -->
+
+
+
+      <!-- =====================================================
+           질문 5
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -469,20 +929,25 @@
 
         </button>
 
+
         <div class="faq-answer">
 
-          회원가입 승인 후 3시간이 경과해야 사이트 이용이 정상적으로 가능합니다.
+          회원가입 승인 후 3시간이 경과해야
+          사이트 이용이 정상적으로 가능합니다.
+
           <br>
+
           잠시 후 다시 로그인 부탁드립니다.
 
         </div>
 
       </div>
 
-  
 
-      
-  <!-- 질문 6 -->
+
+      <!-- =====================================================
+           질문 6
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -495,20 +960,29 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           1개의 기기로만 로그인 가능합니다.
+
           <br>
-          aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
+
+          aircon.sec@samsung.com으로
+          성함, 생년월일을 보내주세요.
+
           <br>
+
           초기화해드리겠습니다.
 
         </div>
 
       </div>
 
-      
-      <!-- 질문 7 -->
+
+
+      <!-- =====================================================
+           질문 7
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -521,11 +995,14 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           현재 Authenticator 앱에 이미 6자리 숫자가 떠있다면
           클릭 후 옆으로 밀어서 삭제 처리한 후에
+
           <br>
+
           다시 로그인하시면 QR코드가 보입니다.
 
           <br>
@@ -537,10 +1014,10 @@
       </div>
 
 
-    
 
-
-      <!-- 질문 8 -->
+      <!-- =====================================================
+           질문 8
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -553,20 +1030,29 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           혹시 핸드폰을 교체하셨나요?
+
           <br>
+
           초기화해드리겠습니다.
+
           <br>
-          aircon.sec@samsung.com으로 성함, 생년월일을 보내주세요.
+
+          aircon.sec@samsung.com으로
+          성함, 생년월일을 보내주세요.
 
         </div>
 
       </div>
 
 
-      <!-- 질문 9 -->
+
+      <!-- =====================================================
+           질문 9
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -579,18 +1065,25 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           교육일로부터 3주 전에 결제 문자를 보내드립니다.
+
           <br>
-          문자 내 URL 결제 링크를 클릭해서 카드 결제 진행하시면 됩니다.
+
+          문자 내 URL 결제 링크를 클릭해서
+          카드 결제 진행하시면 됩니다.
 
         </div>
 
       </div>
 
 
-      <!-- 질문 10 -->
+
+      <!-- =====================================================
+           질문 10
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -603,18 +1096,25 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           죄송하지만 신용카드 결제만 가능합니다.
+
           <br>
-          본인 명의의 신용카드가 없다면, 타인 명의도 가능합니다.
+
+          본인 명의의 신용카드가 없다면,
+          타인 명의도 가능합니다.
 
         </div>
 
       </div>
 
 
-      <!-- 질문 11 -->
+
+      <!-- =====================================================
+           질문 11
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -626,6 +1126,7 @@
           환급대상자(고용보험 납부) 결제 방법
 
         </button>
+
 
         <div class="faq-answer">
 
@@ -645,10 +1146,10 @@
       </div>
 
 
-     
 
-
-      <!-- 질문 12 -->
+      <!-- =====================================================
+           질문 12
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -661,24 +1162,36 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           aircon.sec@samsung.com으로 보내주세요.
+
           <br>
 
           ① 성함, 전화번호
+
           <br>
+
           ② 타사 자격증 복사본
+
           <br>
+
           ③ 증명사진 파일
+
           <br>
+
           ④ 택배 받으실 주소
 
         </div>
 
       </div>
 
-       <!-- 질문 13 -->
+
+
+      <!-- =====================================================
+           질문 13
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -691,26 +1204,36 @@
 
         </button>
 
+
         <div class="faq-answer">
 
-          
           변경이 가능한지 확인 후 연락드리겠습니다.
+
           <br>
+
           aircon.sec@samsung.com으로 보내주세요.
+
           <br>
 
           ① 성함, 생년월일, 전화번호
+
           <br>
+
           ② 교육명
+
           <br>
+
           ③ 변경하고자 하는 날짜
-      
 
         </div>
 
       </div>
-      
-     <!-- 질문 14 -->
+
+
+
+      <!-- =====================================================
+           질문 14
+           ===================================================== -->
 
       <div class="faq-item">
 
@@ -723,58 +1246,92 @@
 
         </button>
 
+
         <div class="faq-answer">
 
           직접 변경이 불가합니다.
+
           <br>
-          aircon.sec@samsung.com으로 요청 사항을 보내주세요.
+
+          aircon.sec@samsung.com으로
+          요청 사항을 보내주세요.
 
         </div>
 
       </div>
 
- 
 
-      
-<button
-  type="button"
-  class="faq-more-button"
-  id="faq-more-button"
-  onclick="toggleMoreFAQ()">
 
-  <span class="faq-more-line1">더 많은 질문 확인하기</span>
-  <span class="faq-more-line2"> (휴대폰번호 변경 · 교육비 결제 등) ↓</span>
+      <!-- =====================================================
+           FAQ 더보기 버튼
+           처음에는 질문 4번 이후가 숨겨져 있음
+           버튼을 누르면 전체 질문이 나타남
+           ===================================================== -->
 
-</button>
+      <button
+        type="button"
+        class="faq-more-button"
+        id="faq-more-button"
+        onclick="toggleMoreFAQ()">
 
-<div class="contact hidden-contact" id="contact-area">
+        <span class="faq-more-line1">
+          더 많은 질문 확인하기
+        </span>
 
-  <strong>문의는 이메일로 부탁드립니다.</strong>
+        <span class="faq-more-line2">
+          (휴대폰번호 변경 · 교육비 결제 등) ↓
+        </span>
 
-  <br>
+      </button>
 
-  <span class="email">
-    aircon.sec@samsung.com
-  </span>
 
-</div>
-      
+
+      <!-- =====================================================
+           FAQ 펼쳤을 때만 나타나는 문의 박스
+           ===================================================== -->
+
+      <div
+        class="contact hidden-contact"
+        id="contact-area">
+
+        <strong>
+          문의는 이메일로 부탁드립니다.
+        </strong>
+
+        <br>
+
+        <span class="email">
+          aircon.sec@samsung.com
+        </span>
+
+      </div>
+
+
     </div>
 
   </header>
 
 
-  <!-- =========================
-       영상 1
-  ========================= -->
+
+  <!-- =========================================================
+       영상 영역
+       ========================================================= -->
 
   <main class="container">
+
+
+    <!-- =========================
+         영상 1
+         ========================= -->
 
     <div class="video-box">
 
       <h2>회원가입 방법</h2>
 
-      <video controls playsinline preload="auto">
+      <video
+        controls
+        playsinline
+        preload="auto">
 
         <source
           src="https://res.cloudinary.com/ixguzqil/video/upload/v1787813381/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85_%EB%B0%A9%EB%B2%95.mp4"
@@ -787,20 +1344,25 @@
     </div>
 
 
+
     <!-- =========================
          영상 2
-    ========================= -->
+         ========================= -->
 
     <div class="video-box">
 
-      <h2>로그인 방법 (다중인증, MFA, 구글 OTP)</h2>
+      <h2>
+        로그인 방법 (다중인증, MFA, 구글 OTP)
+      </h2>
 
-      <video controls playsinline preload="auto">
+      <video
+        controls
+        playsinline
+        preload="auto">
 
         <source
-  src="https://res.cloudinary.com/ixguzqil/video/upload/v1787811433/%EB%A1%9C%EA%B7%B8%EC%9D%B8_%EB%B0%A9%EB%B2%95.mp4"
-  type="video/mp4">
-
+          src="https://res.cloudinary.com/ixguzqil/video/upload/v1787811433/%EB%A1%9C%EA%B7%B8%EC%9D%B8_%EB%B0%A9%EB%B2%95.mp4"
+          type="video/mp4">
 
         브라우저에서 영상을 재생할 수 없습니다.
 
@@ -809,15 +1371,19 @@
     </div>
 
 
+
     <!-- =========================
          영상 3
-    ========================= -->
+         ========================= -->
 
     <div class="video-box">
 
       <h2>비밀번호 초기화 방법</h2>
 
-      <video controls playsinline preload="auto">
+      <video
+        controls
+        playsinline
+        preload="auto">
 
         <source
           src="https://res.cloudinary.com/ixguzqil/video/upload/v1787813505/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8_%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B0%A9%EB%B2%95.mp4"
@@ -829,68 +1395,152 @@
 
     </div>
 
+
   </main>
 
 
-<footer>
 
-  <div class="footer-contact">
-    <div class="footer-message">
-      문의는 이메일로 부탁드립니다.
+  <!-- =========================================================
+       페이지 맨 아래
+       ========================================================= -->
+
+  <footer>
+
+
+    <!-- =====================================================
+         맨 아래 문의 박스
+
+         FAQ를 펼쳤을 때 나오는 문의 박스와 별개로
+         페이지를 전부 내려도 문의 이메일을 볼 수 있도록
+         footer에도 넣어둠
+         ===================================================== -->
+
+    <div class="footer-contact">
+
+      <div class="footer-message">
+
+        문의는 이메일로 부탁드립니다.
+
+      </div>
+
+
+      <div class="footer-email">
+
+        aircon.sec@samsung.com
+
+      </div>
+
     </div>
 
-    <div class="footer-email">
-      aircon.sec@samsung.com
-    </div>
-  </div>
 
-  <br>
-
-  © Samsung AC Academy
-
-</footer>
+    <br>
 
 
-  <!-- =========================
-       기능
-  ========================= -->
+    <!-- 저작권 표시 -->
+    © Samsung AC Academy
+
+  </footer>
+
+
+
+  <!-- =========================================================
+       JavaScript
+       → 버튼을 눌렀을 때 실제로 움직이게 하는 부분
+       ========================================================= -->
 
   <script>
 
 
-    
-
-
-    /* 질문 답변 열기 / 닫기 */
+    /* =========================================================
+       FAQ 질문 열기 / 닫기
+       ========================================================= */
 
     function toggleAnswer(button) {
 
+      /*
+        button
+        → 지금 클릭한 질문 버튼
+
+        nextElementSibling
+        → 버튼 바로 다음에 있는 HTML 요소
+
+        여기서는 .faq-answer가 됨
+      */
+
       const answer = button.nextElementSibling;
+
+
+      /*
+        현재 답변이 열려 있는지 확인
+      */
 
       if (answer.style.display === "block") {
 
+
+        /* 답변 닫기 */
         answer.style.display = "none";
 
+
+        /* active class 제거
+           → + 표시로 돌아감 */
         button.classList.remove("active");
+
 
       } else {
 
+
+        /* 답변 열기 */
         answer.style.display = "block";
 
+
+        /* active class 추가
+           → +가 −로 변경됨 */
         button.classList.add("active");
 
       }
 
     }
 
- document.addEventListener("DOMContentLoaded", function() {
 
-      const faqItems = document.querySelectorAll(".faq-item");
+
+    /* =========================================================
+       페이지가 처음 열렸을 때 실행
+       ========================================================= */
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+
+      /*
+        모든 FAQ 질문을 가져옴
+      */
+
+      const faqItems =
+        document.querySelectorAll(".faq-item");
+
+
+      /*
+        각각의 FAQ를 확인
+      */
 
       faqItems.forEach(function(item, index) {
 
+
+        /*
+          index는 0부터 시작
+
+          질문 1 → index 0
+          질문 2 → index 1
+          질문 3 → index 2
+          질문 4 → index 3
+
+          따라서 index >= 3이면
+          질문 4번부터 숨김
+        */
+
         if (index >= 3) {
+
           item.classList.add("hidden-faq");
+
         }
 
       });
@@ -898,51 +1548,149 @@
     });
 
 
-   function toggleMoreFAQ() {
 
-  const faqItems = document.querySelectorAll(".faq-item");
-  const moreButton = document.getElementById("faq-more-button");
-  const contactArea = document.getElementById("contact-area");
+    /* =========================================================
+       "더 많은 질문 확인하기" 버튼
+       ========================================================= */
 
-  const isHidden = faqItems[3].classList.contains("hidden-faq");
+    function toggleMoreFAQ() {
 
-  faqItems.forEach(function(item, index) {
 
-    if (index >= 3) {
+      /*
+        모든 FAQ 가져오기
+      */
+
+      const faqItems =
+        document.querySelectorAll(".faq-item");
+
+
+      /*
+        더보기 버튼 가져오기
+      */
+
+      const moreButton =
+        document.getElementById("faq-more-button");
+
+
+      /*
+        FAQ 안의 문의 박스 가져오기
+      */
+
+      const contactArea =
+        document.getElementById("contact-area");
+
+
+      /*
+        질문 4번이 현재 숨겨져 있는지 확인
+
+        숨겨져 있으면 → 펼치기
+        보이면 → 다시 접기
+      */
+
+      const isHidden =
+        faqItems[3].classList.contains("hidden-faq");
+
+
+
+      /* =====================================================
+         질문 4번부터 마지막 질문까지 처리
+         ===================================================== */
+
+      faqItems.forEach(function(item, index) {
+
+
+        /*
+          index 3 = 질문 4번
+
+          질문 4번 이후만 처리
+        */
+
+        if (index >= 3) {
+
+
+          if (isHidden) {
+
+            /*
+              현재 숨겨져 있다면
+              → hidden-faq 제거
+              → 질문을 화면에 표시
+            */
+
+            item.classList.remove("hidden-faq");
+
+
+          } else {
+
+            /*
+              현재 보이고 있다면
+              → hidden-faq 추가
+              → 질문을 다시 숨김
+            */
+
+            item.classList.add("hidden-faq");
+
+          }
+
+        }
+
+      });
+
+
+
+      /* =====================================================
+         펼쳐진 상태 / 접힌 상태에 따라 처리
+         ===================================================== */
 
       if (isHidden) {
-        item.classList.remove("hidden-faq");
+
+
+        /*
+          질문을 펼쳤을 때
+
+          문의 박스 표시
+        */
+
+        contactArea.classList.remove("hidden-contact");
+
+
+        /*
+          버튼 글자를 "질문 접기"로 변경
+        */
+
+        moreButton.innerHTML =
+          '<span class="faq-more-line1">질문 접기 ↑</span>';
+
+
       } else {
-        item.classList.add("hidden-faq");
+
+
+        /*
+          질문을 다시 접었을 때
+
+          문의 박스 숨김
+        */
+
+        contactArea.classList.add("hidden-contact");
+
+
+        /*
+          버튼 글자를 원래대로 변경
+        */
+
+        moreButton.innerHTML =
+          '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
+          '<span class="faq-more-line2">' +
+          ' (휴대폰번호 변경 · 교육비 결제 등) ↓' +
+          '</span>';
+
       }
 
     }
 
-  });
 
-  if (isHidden) {
-
-    // 질문 펼치기 + 문의 표시
-    contactArea.classList.remove("hidden-contact");
-
-    moreButton.innerHTML =
-      '<span class="faq-more-line1">질문 접기 ↑</span>';
-
-  } else {
-
-    // 질문 접기 + 문의 숨기기
-    contactArea.classList.add("hidden-contact");
-
-    moreButton.innerHTML =
-      '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
-      '<span class="faq-more-line2"> (휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
-
-  }
-
-}
-
-    
   </script>
 
+
 </body>
+
 </html>
