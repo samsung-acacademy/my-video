@@ -1312,285 +1312,214 @@
        JavaScript
        ========================================================= -->
 
+
+
+
+
   <script>
 
+  /* =========================================================
+     FAQ 질문 열기 / 닫기
+     ========================================================= */
 
-    /* =========================================================
-       FAQ 질문 열기 / 닫기
-       
-       한 번에 하나의 답변만 열림
-       다른 질문을 누르면 기존 답변은 자동으로 닫힘
-       ========================================================= */
+  function toggleAnswer(button) {
 
-    function toggleAnswer(button) {
+    const answer = button.nextElementSibling;
 
+    const allAnswers =
+      document.querySelectorAll(".faq-answer");
 
-      /* 현재 클릭한 질문의 바로 다음 요소 = 답변 */
-
-      const answer =
-        button.nextElementSibling;
+    const allQuestions =
+      document.querySelectorAll(".faq-question");
 
 
-      /* 모든 답변 가져오기 */
+    /* 다른 답변 닫기 */
 
-      const allAnswers =
-        document.querySelectorAll(".faq-answer");
+    allAnswers.forEach(function(item) {
 
-
-      /* 모든 질문 버튼 가져오기 */
-
-      const allQuestions =
-        document.querySelectorAll(".faq-question");
-
-
-      /* 다른 답변 모두 닫기 */
-
-      allAnswers.forEach(function(item) {
-
-        if (item !== answer) {
-
-          item.style.display = "none";
-
-        }
-
-      });
-
-
-      /* 다른 질문의 + / − 표시 원래대로 */
-
-      allQuestions.forEach(function(item) {
-
-        if (item !== button) {
-
-          item.classList.remove("active");
-
-        }
-
-      });
-
-
-      /* 현재 질문 열기 / 닫기 */
-
-      if (answer.style.display === "block") {
-
-
-        /* 현재 답변이 열려 있다면 닫기 */
-
-        answer.style.display = "none";
-
-        button.classList.remove("active");
-
-
-      } else {
-
-
-        /* 현재 답변이 닫혀 있다면 열기 */
-
-        answer.style.display = "block";
-
-        button.classList.add("active");
-
+      if (item !== answer) {
+        item.style.display = "none";
       }
+
+    });
+
+
+    /* 다른 질문의 + / − 표시 초기화 */
+
+    allQuestions.forEach(function(item) {
+
+      if (item !== button) {
+        item.classList.remove("active");
+      }
+
+    });
+
+
+    /* 현재 질문 열기 / 닫기 */
+
+    if (answer.style.display === "block") {
+
+      answer.style.display = "none";
+      button.classList.remove("active");
+
+    } else {
+
+      answer.style.display = "block";
+      button.classList.add("active");
 
     }
 
-
-
-    /* =========================================================
-       페이지가 처음 열렸을 때 실행
-       
-       질문 1~3번만 보이게 하고
-       질문 4~14번은 숨김
-       ========================================================= */
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-
-
-        /* 모든 FAQ 가져오기 */
-
-        const faqItems =
-          document.querySelectorAll(".faq-item");
-
-
-        /* FAQ 각각 확인 */
-
-        faqItems.forEach(function(item, index) {
-
-
-          /*
-            index는 0부터 시작
-
-            질문 1 → 0
-            질문 2 → 1
-            질문 3 → 2
-            질문 4 → 3
-
-            따라서 index >= 3이면
-            질문 4번부터 숨김
-          */
-
-          if (index >= 3) {
-
-            item.classList.add("hidden-faq");
-
-          }
-
-        });
-
-      }
-    );
+  }
 
 
 
-    /* =========================================================
-       "더 많은 질문 확인하기" 버튼
-       
-       질문 4~14번을 펼치거나 다시 접음
-       ========================================================= */
+  /* =========================================================
+     페이지 처음 열렸을 때
+     질문 1~3만 표시
+     질문 4~14는 숨김
+     ========================================================= */
 
-    function toggleMoreFAQ() {
+  document.addEventListener("DOMContentLoaded", function() {
 
-
-      /* 모든 FAQ 가져오기 */
-
-      const faqItems =
-        document.querySelectorAll(".faq-item");
+    const faqItems =
+      document.querySelectorAll(".faq-item");
 
 
-      /* 더보기 / 접기 버튼 가져오기 */
-
-      const moreButton =
-        document.getElementById("faq-more-button");
-
-
-      /* FAQ 안의 문의 박스 가져오기 */
-
-      const contactArea =
-        document.getElementById("contact-area");
-
+    faqItems.forEach(function(item, index) {
 
       /*
-        질문 4번이 현재 숨겨져 있는지 확인
+        질문 1 = index 0
+        질문 2 = index 1
+        질문 3 = index 2
+        질문 4 = index 3
 
-        숨겨져 있다면
-        → 현재 접힌 상태
-        → 이번 클릭으로 펼침
-
-        숨겨져 있지 않다면
-        → 현재 펼쳐진 상태
-        → 이번 클릭으로 접음
+        따라서 index >= 3이면
+        질문 4번부터 숨김
       */
 
-      const isHidden =
-        faqItems[3].classList.contains("hidden-faq");
+      if (index >= 3) {
+        item.classList.add("hidden-faq");
+      }
+
+    });
+
+  });
 
 
 
-      /* =====================================================
-         질문 4번부터 마지막 질문까지 처리
-         ===================================================== */
+  /* =========================================================
+     더 많은 질문 확인하기 / 질문 접기
+     ========================================================= */
 
-      faqItems.forEach(function(item, index) {
+  function toggleMoreFAQ() {
 
+    /* 모든 FAQ 가져오기 */
 
-        /* 질문 4번 이후만 처리 */
-
-        if (index >= 3) {
-
-
-          if (isHidden) {
+    const faqItems =
+      document.querySelectorAll(".faq-item");
 
 
-            /*
-              현재 숨겨져 있다면
-              → 화면에 표시
-            */
+    /* 더보기 버튼 가져오기 */
 
-            item.classList.remove("hidden-faq");
+    const moreButton =
+      document.getElementById("faq-more-button");
 
 
-          } else {
+    /* 문의 영역 가져오기 */
+
+    const contactArea =
+      document.getElementById("contact-area");
 
 
-            /*
-              현재 보이고 있다면
-              → 다시 숨김
-            */
+    /*
+      질문 4번이 현재 숨겨져 있는지 확인
 
-            item.classList.add("hidden-faq");
+      true  = 현재 접혀 있음
+      false = 현재 펼쳐져 있음
+    */
 
-          }
+    const isHidden =
+      faqItems[3].classList.contains("hidden-faq");
+
+
+    /* =====================================================
+       질문 4번부터 마지막 질문까지 표시 / 숨김
+       ===================================================== */
+
+    faqItems.forEach(function(item, index) {
+
+      if (index >= 3) {
+
+        if (isHidden) {
+
+          /* 펼치기 */
+
+          item.classList.remove("hidden-faq");
+
+        } else {
+
+          /* 접기 */
+
+          item.classList.add("hidden-faq");
 
         }
 
-      });
-
-
-
-      /* =====================================================
-         펼쳐진 상태
-         ===================================================== */
-
-      if (isHidden) {
-
-
-        /* 문의 영역 표시 */
-
-        contactArea.classList.remove("hidden-contact");
-
-
-        /* 버튼을 "질문 접기"로 변경 */
-
-        moreButton.innerHTML =
-          '<span class="faq-more-line1">질문 접기 ↑</span>';
-
-
-        /*
-          모바일에서는 버튼을
-          화면 아래에 고정
-        */
-
-        moreButton.classList.add("sticky-close");
-
-
       }
 
+    });
 
 
-      /* =====================================================
-         접힌 상태
-         ===================================================== */
+    /* =====================================================
+       펼쳐졌을 때
+       ===================================================== */
 
-      else {
+    if (isHidden) {
 
+      /* 문의 영역 표시 */
 
-        /* 문의 영역 숨기기 */
-
-        contactArea.classList.add("hidden-contact");
-
-
-        /*
-          모바일에서 버튼 고정 해제
-        */
-
-        moreButton.classList.remove("sticky-close");
+      contactArea.classList.remove("hidden-contact");
 
 
-        /*
-          버튼 내용을 원래대로 변경
-        */
+      /* 버튼 문구 변경 */
 
-        moreButton.innerHTML =
-          '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
-          '<span class="faq-more-line2"> (휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
+      moreButton.innerHTML =
+        '<span class="faq-more-line1">질문 접기 ↑</span>';
 
-      }
+
+      /* 모바일에서 버튼 아래 고정 */
+
+      moreButton.classList.add("sticky-close");
 
     }
 
-  </script>
+
+    /* =====================================================
+       다시 접었을 때
+       ===================================================== */
+
+    else {
+
+      /* 문의 영역 숨김 */
+
+      contactArea.classList.add("hidden-contact");
+
+
+      /* 모바일 고정 해제 */
+
+      moreButton.classList.remove("sticky-close");
+
+
+      /* 버튼 문구 원래대로 */
+
+      moreButton.innerHTML =
+        '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
+        '<span class="faq-more-line2"> (휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
+
+    }
+
+  }
+
+</script>
 
 
 </body>
