@@ -253,24 +253,25 @@
     max-width: 360px;
   }
 
-        .faq-more-button {
+  .faq-more-button {
     font-size: 13px;
     padding: 12px 8px;
+    white-space: normal;
     line-height: 1.6;
   }
       
 }
 
 
-    /* =========================
-       FAQ 더보기
-    ========================= */
+/* =========================
+   FAQ 더보기
+========================= */
 
-    .faq-item.hidden-faq {
-      display: none;
-    }
+.faq-item.hidden-faq {
+  display: none;
+}
 
-    .faq-more-button {
+.faq-more-button {
   width: 100%;
   margin-top: 12px;
   padding: 12px 10px;
@@ -281,16 +282,35 @@
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: normal;
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: center;
 }
 
-    .faq-more-button:hover {
-      background: #dfeaff;
-    }
+/* PC에서는 한 줄 */
+.faq-more-line1,
+.faq-more-line2 {
+  display: inline;
+}
+
+/* 모바일에서는 두 줄 */
+@media (max-width: 600px) {
+
+  .faq-more-button {
+    font-size: 13px;
+    padding: 12px 8px;
+    line-height: 1.6;
+  }
+
+  .faq-more-line1,
+  .faq-more-line2 {
+    display: block;
+  }
+
+}
+
+.faq-more-button:hover {
+  background: #dfeaff;
+}
 
   </style>
 </head>
@@ -656,15 +676,16 @@
 
       </div>
       
-         <button
-        type="button"
-        class="faq-more-button"
-        id="faq-more-button"
-        onclick="toggleMoreFAQ()">
+      <button
+  type="button"
+  class="faq-more-button"
+  id="faq-more-button"
+  onclick="toggleMoreFAQ()">
 
-        더 많은 질문 확인하기 (휴대폰번호 변경 · 교육비 결제 등) ↓
+  <span class="faq-more-line1">더 많은 질문 확인하기</span>
+  <span class="faq-more-line2">(휴대폰번호 변경 · 교육비 결제 등) ↓</span>
 
-      </button>
+</button>
       
     </div>
 
@@ -812,15 +833,17 @@
 
       });
 
-      if (isHidden) {
+     if (isHidden) {
 
-        moreButton.textContent = "질문 접기 ↑";
+  moreButton.innerHTML = '<span class="faq-more-line1">질문 접기 ↑</span>';
 
-      } else {
+} else {
 
-        moreButton.textContent = "더 많은 질문 확인하기 (휴대폰번호 변경 · 교육비 결제 등) ↓";
+  moreButton.innerHTML =
+    '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
+    '<span class="faq-more-line2">(휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
 
-      }
+}
 
     }
 
