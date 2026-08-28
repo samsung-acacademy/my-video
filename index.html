@@ -254,6 +254,39 @@
     max-width: 360px;
   }
 }
+    .faq-button {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+
+
+    /* =========================
+       FAQ 더보기
+    ========================= */
+
+    .faq-item.hidden-faq {
+      display: none;
+    }
+
+    .faq-more-button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #eef4ff;
+      color: #1428a0;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .faq-more-button:hover {
+      background: #dfeaff;
+    }
+
+  </style>
   </style>
 </head>
 
@@ -633,6 +666,17 @@
 
         </div>
 
+         <button
+        type="button"
+        class="faq-more-button"
+        id="faq-more-button"
+        onclick="toggleMoreFAQ()">
+
+        더 많은 질문 보기 ↓
+
+      </button>
+
+        
       </div>
 
     </div>
@@ -760,6 +804,55 @@
 
     }
 
+ document.addEventListener("DOMContentLoaded", function() {
+
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach(function(item, index) {
+
+        if (index >= 3) {
+          item.classList.add("hidden-faq");
+        }
+
+      });
+
+    });
+
+
+    function toggleMoreFAQ() {
+
+      const faqItems = document.querySelectorAll(".faq-item");
+      const moreButton = document.getElementById("faq-more-button");
+
+      const isHidden = faqItems[3].classList.contains("hidden-faq");
+
+      faqItems.forEach(function(item, index) {
+
+        if (index >= 3) {
+
+          if (isHidden) {
+            item.classList.remove("hidden-faq");
+          } else {
+            item.classList.add("hidden-faq");
+          }
+
+        }
+
+      });
+
+      if (isHidden) {
+
+        moreButton.textContent = "질문 접기 ↑";
+
+      } else {
+
+        moreButton.textContent = "더 많은 질문 보기 ↓";
+
+      }
+
+    }
+
+    
   </script>
 
 </body>
