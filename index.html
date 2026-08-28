@@ -779,6 +779,35 @@
       /* 조금 진한 파란색 */
     }
 
+/* =========================
+   질문 접기 버튼
+   - 모바일에서만 화면 아래에 고정
+   - 질문을 펼쳤을 때만 적용
+========================= */
+
+@media (max-width: 600px) {
+
+  .faq-more-button.sticky-close {
+    position: fixed;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 28px);
+    max-width: 500px;
+
+    z-index: 9999;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
+  }
+
+}
+
+
+
+    
   </style>
 
 </head>
@@ -1651,27 +1680,40 @@ function toggleAnswer(button) {
          펼쳐진 상태 / 접힌 상태에 따라 처리
          ===================================================== */
 
-      if (isHidden) {
+     if (isHidden) {
 
+  // =========================
+  // 질문 펼치기
+  // =========================
 
-        /*
-          질문을 펼쳤을 때
+  // 문의 영역 표시
+  contactArea.classList.remove("hidden-contact");
 
-          문의 박스 표시
-        */
+  // 버튼을 "질문 접기"로 변경
+  moreButton.innerHTML =
+    '<span class="faq-more-line1">질문 접기 ↑</span>';
 
-        contactArea.classList.remove("hidden-contact");
+  // 모바일에서 버튼을 화면 아래에 고정
+  moreButton.classList.add("sticky-close");
 
+} else {
 
-        /*
-          버튼 글자를 "질문 접기"로 변경
-        */
+  // =========================
+  // 질문 접기
+  // =========================
 
-        moreButton.innerHTML =
-          '<span class="faq-more-line1">질문 접기 ↑</span>';
+  // 문의 영역 숨기기
+  contactArea.classList.add("hidden-contact");
 
+  // 버튼 고정 해제
+  moreButton.classList.remove("sticky-close");
 
-      } else {
+  // 버튼 내용을 원래대로 변경
+  moreButton.innerHTML =
+    '<span class="faq-more-line1">더 많은 질문 확인하기</span>' +
+    '<span class="faq-more-line2"> (휴대폰번호 변경 · 교육비 결제 등) ↓</span>';
+
+}
 
 
         /*
